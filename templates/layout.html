@@ -20,13 +20,7 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/home">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/otherpage">Other Page</a>
-            </li>
             {% if current_user.is_authenticated %}
-              <li class="nav-item">
-                <a class="nav-link" href="/tasks">Tareas</a>
-              </li>
               <li class="nav-item">
                 <a class="nav-link" href="/auth/logout">SALIR</a>
               </li>
