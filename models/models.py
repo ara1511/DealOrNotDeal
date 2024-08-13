@@ -20,7 +20,6 @@ class User(UserMixin, Base):
     fullname: Mapped[str] = mapped_column(String(80))
     password : Mapped[str] = mapped_column(String(128))
     
-    tasks: Mapped[List["Task"]] = relationship(back_populates="user")
     
     def set_password(self, password_to_hash):
         self.password = generate_password_hash(password_to_hash)
@@ -28,17 +27,6 @@ class User(UserMixin, Base):
     def check_password(self, password_to_hash):
         return check_password_hash(self.password, password_to_hash)
 
-
-class Task(Base):
-    __tablename__ = 'tasks'
-    id = mapped_column(Integer, primary_key=True)
-    titulo: Mapped[str] = mapped_column(String(100))
-    descripcion: Mapped[Optional[str]] = mapped_column()
-    fechaCreacion: Mapped[datetime] = mapped_column(insert_default=func.now())
-    user_id: Mapped[int] = mapped_column(ForeignKey('users.id'))
-    # fechaCreacion = mapped_column(DateTime, insert_default=datetime.now())
-    
-    user: Mapped["User"] = relationship(back_populates="tasks")
 
 
 # Se instalan las librerias con flask_wtf y wtforms
