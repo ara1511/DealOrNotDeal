@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Deal or No Deal - Historial de Juego</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Deal or No Deal - Historial de Juego</h1>
+    <ul>
+        {% for offer in results %}
+            <li>Oferta: ${{ offer:.2f }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('juegos.index') }}" class="back-button">Volver al Juego</a>
+</body>
+</html>

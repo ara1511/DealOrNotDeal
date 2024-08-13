@@ -1,0 +1,77 @@
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-right: 10px;
+}
+
+.alert {
+    padding: 10px;
+    margin: 10px 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    margin-top: 20px;
+    color: #333;
+}
+
+.cases-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 20px;
+}
+
+.case-button {
+    width: 80px;
+    height: 80px;
+    font-size: 1.2em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.case-button.opened {
+    background-color: #6c757d;
+}
+
+.deal-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    margin: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.no-deal-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    margin: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.play-again-button, .back-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: inline-block;
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deal or No Deal</title>
+    <!-- Incluye aquí tus enlaces a CSS y JavaScript si es necesario -->
+</head>
+<body>
+    <h1>Deal or No Deal</h1>
+
+    <p>El valor del maletín abierto es: ${{ case_value | round(2) }}</p>
+    <p>El banquero te ofrece: ${{ offer | round(2) }}</p>
+
+    <!-- Agrega botones para aceptar o rechazar la oferta -->
+    <form method="POST" action="{{ url_for('juegos.deal_no_deal') }}">
+        <button type="submit" name="deal" value="deal">Aceptar Oferta</button>
+        <button type="submit" name="deal" value="no_deal">Rechazar Oferta</button>
+    </form>
+
+</body>
+</html>

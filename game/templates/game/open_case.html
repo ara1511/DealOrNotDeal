@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deal or No Deal - Open Case</title>
+    <style>
+        .case {
+            padding: 10px;
+            margin: 5px;
+            display: inline-block;
+            width: 60px;
+            text-align: center;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+        .case.opened {
+            background-color: #d9534f;
+            color: #fff;
+        }
+
+        .case.unopened {
+            background-color: #5bc0de;
+            color: #fff;
+        }
+
+        .case.selected {
+            background-color: #f0ad4e;
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Round {{ round_number }}: Open a Case</h1>
+    <div class="container">
+        {% for case in range(1, 27) %}
+            {% if case in opened_case_numbers %}
+            <div class="case opened">{{ case }}</div>
+            {% elif case == selected_case_number %}
+            <div class="case selected">{{ case }}</div>
+            {% else %}
+            <form method="post" action="{{ url_for('juegos.open_case') }}" style="display:inline;">
+                <button type="submit" name="case_number" value="{{ case }}" class="case">{{ case }}</button>
+            </form>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% if case_value is defined %}
+    <h2>You revealed a case containing: ${{ case_value }}</h2>
+    {% endif %}
+</body>
+</html>
